@@ -1,0 +1,145 @@
+{
+  "name": "vue-lib-starter",
+  "version": "0.1.0",
+  "description": "Vue Lib Starter - A boilerplate for creating a Vue library, using Storybook.",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "author": "senntyou <jiangjinbelief@163.com>",
+  "homepage": "https://github.com/senntyou/vue-lib-starter",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/senntyou/vue-lib-starter"
+  },
+  "keywords": [
+    "vue",
+    "lib",
+    "library",
+    "starter",
+    "boilerplate",
+    "storybook",
+    "webpack",
+    "gulp",
+    "jest"
+  ],
+  "bugs": {
+    "url": "https://github.com/senntyou/vue-lib-starter/issues"
+  },
+  "readmeFilename": "README.md",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "precommit": "npm run lint-staged",
+    "lint-staged": "lint-staged",
+    "prettier": "prettier --write \"./**/*.{js,vue,css,less,scss,sass,html,md,json}\"",
+    "eslint": "eslint \"./**/*.js\"",
+    "eslint:fix": "eslint \"./**/*.js\" --fix",
+    "eslint-vue": "eslint \"./**/*.vue\" -c .eslintrc.vue.js",
+    "eslint-vue:fix": "eslint \"./**/*.vue\" -c .eslintrc.vue.js --fix",
+    "stylelint": "stylelint \"./**/*.{css,less,scss,sass,vue}\"",
+    "stylelint:fix": "stylelint \"./**/*.{css,less,scss,sass,vue}\" --fix",
+    "flow": "flow",
+    "flow:check": "flow check",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build:less": "gulp less",
+    "build:scss": "gulp scss",
+    "build:styles": "npm run build:less",
+    "build:lib": "gulp babel:lib",
+    "build:es": "gulp babel:es",
+    "build": "npm run clean && npm run build:styles && npm run build:lib && npm run build:es",
+    "clean": "rimraf lib es",
+    "prepublish": "npm run build",
+    "test": "jest",
+    "test-watch": "jest --watch --notify",
+    "test-cover": "jest --coverage",
+    "coverage": "npm run test-cover && opn coverage/lcov-report/index.html"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-flow": "^7.0.0",
+    "@storybook/addon-actions": "^5.0.0",
+    "@storybook/addon-links": "^5.0.0",
+    "@storybook/addons": "^5.0.0",
+    "@storybook/vue": "^5.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.1.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "babel-preset-vue": "^2.0.2",
+    "css-loader": "^2.1.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.4.0",
+    "eslint-plugin-flowtype": "^3.2.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^22.1.3",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-vue": "^5.2.2",
+    "flow-bin": "^0.94.0",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "husky": "^1.3.1",
+    "jest": "^24.1.0",
+    "jsdom": "^13.2.0",
+    "jsdom-global": "^3.0.2",
+    "less": "^3.9.0",
+    "less-loader": "^4.1.0",
+    "lint-staged": "^8.1.0",
+    "node-sass": "^4.11.0",
+    "opn-cli": "^4.0.0",
+    "prettier": "^1.15.3",
+    "rimraf": "^2.6.3",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "stylelint": "^9.9.0",
+    "stylelint-config-prettier": "^4.0.0",
+    "stylelint-config-standard": "^18.2.0",
+    "vue": "^2.6.8",
+    "vue-eslint-parser": "^6.0.3",
+    "vue-jest": "^4.0.0-beta.2",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.8"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.vue": [
+      "eslint -c .eslintrc.vue.js --fix",
+      "stylelint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{css,less,scss,sass}": [
+      "stylelint --fix",
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{html,md,json}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@babel/runtime": "^7.3.4"
+  }
+}
