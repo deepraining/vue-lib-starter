@@ -3,6 +3,7 @@ const rename = require('gulp-rename');
 const less = require('gulp-less');
 const scss = require('gulp-sass');
 const babel = require('gulp-babel');
+const compileVue = require('./scripts/compile-vue');
 
 gulp.task('less', () =>
   gulp
@@ -22,7 +23,7 @@ gulp.task('scss', () =>
     .pipe(gulp.dest('es')),
 );
 
-gulp.task('babel:lib', () =>
+gulp.task('lib', () =>
   gulp
     .src('src/**/*.js')
     .pipe(
@@ -42,9 +43,51 @@ gulp.task('babel:lib', () =>
     .pipe(gulp.dest('lib')),
 );
 
-gulp.task('babel:es', () =>
+gulp.task('es', () =>
   gulp
     .src('src/**/*.js')
+    .pipe(
+      babel({
+        babelrc: false,
+        configFile: false,
+        presets: [
+          ['@babel/preset-env', { modules: false }],
+          '@babel/preset-flow',
+        ],
+        plugins: [
+          '@babel/plugin-proposal-class-properties',
+          '@babel/plugin-transform-runtime',
+        ],
+      }),
+    )
+    .pipe(gulp.dest('es')),
+);
+
+gulp.task('vue:lib', () =>
+  gulp
+    .src('src/**/*.vue')
+    .pipe(compileVue())
+    .pipe(
+      babel({
+        babelrc: false,
+        configFile: false,
+        presets: [
+          ['@babel/preset-env', { modules: 'cjs' }],
+          '@babel/preset-flow',
+        ],
+        plugins: [
+          '@babel/plugin-proposal-class-properties',
+          '@babel/plugin-transform-runtime',
+        ],
+      }),
+    )
+    .pipe(gulp.dest('lib')),
+);
+
+gulp.task('vue:es', () =>
+  gulp
+    .src('src/**/*.vue')
+    .pipe(compileVue())
     .pipe(
       babel({
         babelrc: false,
