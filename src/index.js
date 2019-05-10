@@ -1,2 +1,2 @@
-export { default as Hello } from './components/HelloWrapper';
-export { default as Welcome } from './components/WelcomeWrapper';
+export { default as Hello } from './components/Hello';
+export { default as Welcome } from './components/Welcome';
