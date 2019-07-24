@@ -1,40 +1,42 @@
 # vue-lib-starter
 
-Vue Lib Starter - A boilerplate for creating a Vue library, using Storybook.
+[English Documentation](./README.en.md)
 
-## Getting started
+一个用于快速创建 Vue 组件库的模板脚手架，使用 Storybook 构建.
+
+## 快速开始
 
 ```
 git clone https://github.com/senntyou/vue-lib-starter.git --depth=1
 
 cd vue-lib-starter
 
-npm install             # install dependencies
+npm install             # 安装依赖
 
-npm run storybook       # develop using storybook
+npm run storybook       # 使用 storybook 开发组件
 
-npm run build           # build distribution files
+npm run build           # 构建发布文件
 ```
 
-## Features
+## 特性
 
-- [less](http://lesscss.org/), [scss](https://sass-lang.com/) style languages support.
-- [Single File Components](https://vuejs.org/v2/guide/single-file-components.html), [jest](https://jestjs.io/en/) test support.
-- Using [storybook](https://storybook.js.org/) to develop, preview, deploy static site.
+- [less](http://lesscss.org/), [scss](https://sass-lang.com/) 样式语言支持.
+- [单文件组件](https://vuejs.org/v2/guide/single-file-components.html), [jest](https://jestjs.io/en/) 测试支持.
+- 使用 [storybook](https://storybook.js.org/) 开发、预览组件.
 
-## Project
+## 项目
 
 ```
 - src
-  - index.js                 # js entry file
+  - index.js                 # js 入口文件
   - styles
-    - index.{less,scss}      # style entry file
+    - index.{less,scss}      # 样式入口文件
 
 - .storybook                 # for storybook
 - stories                    # for storybook
 ```
 
-By default, styles use `less` language, if you want to use `scss` language, you should modify `package.json` by:
+样式默认使用 `less` 语言, 如果你想使用 `scss` 语言, 可以修改 `package.json`:
 
 ```
 "scripts": {
@@ -43,6 +45,6 @@ By default, styles use `less` language, if you want to use `scss` language, you 
 }
 ```
 
-## Notes
+## 注意
 
-- It's recommended to write styles separately with scripts and templates (not in `.vue` files, but in `.{less,scss}` files).
+- 推荐把 Vue 组件的样式与 js 脚本分开来写(样式单独写在 `.{less,scss}` 文件中，而非 `.vue` 文件).
