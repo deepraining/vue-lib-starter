@@ -1,7 +1,7 @@
 {
   "name": "vue-lib-starter",
   "version": "0.1.0",
-  "description": "Vue Lib Starter - A boilerplate for creating a Vue library, using Storybook.",
+  "description": "A boilerplate for creating a Vue library, using Storybook.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "author": "senntyou <jiangjinbelief@163.com>",
